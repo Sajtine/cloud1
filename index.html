@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Form</title>
+</head>
+<body>
+    <h2>Enter Your Details</h2>
+
+    <form id="data-form">
+        <label for="name">Enter Name</label>
+        <input type="text" id="name" required />
+
+        <br /><br />
+
+        <label for="age">Enter Age</label>
+        <input type="number" id="age" />
+
+        <br /><br />
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Submitted Data:</h2>
+    <ul id="data-list"></ul>
+
+    <script>
+        function getData(event){
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let age = document.getElementById("age").value;
+
+            const dispData = document.getElementById("data-list");
+            dispData.innerHTML = `
+                <li><strong>Name:</strong> ${name}</li>
+                <li><strong>Age:</strong> ${age}</li>
+            `;
+
+
+            document.getElementById("data-form").reset();
+
+
+        }
+
+        document.getElementById("data-form").addEventListener("submit", getData);
+    </script>
+</body>
+</html>
